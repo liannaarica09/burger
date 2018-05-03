@@ -1,8 +1,16 @@
 <h2>Eat Your Food!</h2>
-
-<ul>
-    {{#each burgers}} {{#if devoured}} {{> divs/burgerDiv devoured=false}} {{/if}} {{/each}}
-</ul>
+<div id="menue">
+    <div id="notEaten">
+        {{#each burgers}} {{#unless this.devoured}}
+        <button class="toEat" data-id="{{ID}}">{{this.burger_name}}</button>
+        {{/unless}} {{/each}}
+    </div>
+    <div id="eaten">
+        {{#each burgers}} {{#if this.devoured}}
+        <div class="eaten" data-id="{{ID}}">{{this.burger_name}}</div>
+        {{/if}} {{/each}}
+    </div>
+</div>
 
 <h2>Add a Burger</h2>
 <form class="create-form">
